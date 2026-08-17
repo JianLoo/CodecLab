@@ -1,0 +1,71 @@
+.gitignore
+  s_26b00c2f253f25::t_2d4c4f2c99467b 1-18
+README.md
+  s_26b00c2f253f25::t_c03bf079a9672e 1-122
+app/proguard-rules.pro
+  s_0f4651bf32325a::t_ad12c5f9046a6b 1-2
+app/src/main/cpp/codec_core.cpp
+  s_0f4651bf32325a::t_502b3b0958a960 1-76
+app/src/main/cpp/include/codec_core/codec_core.h
+  s_0f4651bf32325a::t_1383500c516362 1-32
+app/src/main/res/values/colors.xml
+  s_0f4651bf32325a::t_aaa957401c3ff9 1-6
+app/src/main/res/values/strings.xml
+  s_0f4651bf32325a::t_e0ccc050fec20c 1-4
+app/src/main/res/values/styles.xml
+  s_0f4651bf32325a::t_6c672a870b3613 1-11
+app/src/main/res/values/widget_styles.xml
+  s_0f4651bf32325a::t_5a65b685e8823a 1-20
+build.gradle
+  s_0f4651bf32325a::t_26cac0d2cf1c5f 1-4
+gradle.properties
+  s_0f4651bf32325a::t_6bccc82a3a2a12 1-4
+gradle/wrapper/gradle-wrapper.properties
+  s_08ca20d2e311a8::t_0a6b1256198e23 1-7
+gradlew
+  s_08ca20d2e311a8::t_97b62c17cfb7a5 1-251
+gradlew.bat
+  s_08ca20d2e311a8::t_4f89a3a8f5c368 1-94
+scripts/bootstrap_ffmpeg_source.sh
+  s_08ca20d2e311a8::t_8dacdcb974f936 1-11
+scripts/prepare_dependencies.sh
+  s_08ca20d2e311a8::t_07f2597e61d883 1-22
+settings.gradle
+  s_0f4651bf32325a::t_52c5bdff3af19e 1-19
+third_party/DEPENDENCIES.lock
+  s_08ca20d2e311a8::t_3223e1228cfe67 1-8
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "4b4ed1da5121a1e0fd51c0aca562a33f11d338d4",
+  "prompts": {},
+  "logical_commit_id": "4b4ed1da5121a1e0fd51c0aca562a33f11d338d4",
+  "sessions": {
+    "s_08ca20d2e311a8": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019ff941-14cd-7382-b0ee-56566b8584f5",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "lujian <lujian@bigo.sg>"
+    },
+    "s_0f4651bf32325a": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "61433e43-d966-41f1-918a-06da35d4ae9a",
+        "model": "default"
+      },
+      "human_author": "lujian <lujian@bigo.sg>"
+    },
+    "s_26b00c2f253f25": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019fb236-30f6-7852-a4a3-71b7113c8ca8",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "lujian <lujian@bigo.sg>",
+      "total_additions": 140
+    }
+  }
+}
