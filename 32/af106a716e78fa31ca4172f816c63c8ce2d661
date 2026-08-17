@@ -1,0 +1,33 @@
+app/src/main/AndroidManifest.xml
+  s_08ca20d2e311a8::t_5b4f246f0d4c7f 6,8
+README.md
+  s_26b00c2f253f25::t_a5c2ce2509d461 1-4
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "32af106a716e78fa31ca4172f816c63c8ce2d661",
+  "prompts": {},
+  "logical_commit_id": "32af106a716e78fa31ca4172f816c63c8ce2d661",
+  "sessions": {
+    "s_08ca20d2e311a8": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019ff941-14cd-7382-b0ee-56566b8584f5",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "lujian <lujian@bigo.sg>",
+      "total_additions": 2,
+      "total_deletions": 2
+    },
+    "s_26b00c2f253f25": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019fb236-30f6-7852-a4a3-71b7113c8ca8",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "lujian <lujian@bigo.sg>",
+      "total_additions": 4
+    }
+  }
+}
