@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="app/src/main/res/drawable-nodpi/ic_codec_lab_generated.png" alt="CodecLab 应用图标" width="180" />
+</p>
+
 # CodecLab
 
 CodecLab 是一个面向 Android 的视频转码与客观画质分析实验室。它把 Android 平台能力、FFmpeg/x264/x265 软件媒体栈、MediaCodec 硬件媒体栈和 libvmaf 质量评价组合在一个可复现的工程里。
