@@ -1,0 +1,20 @@
+<resources>
+    <style name="SectionTitle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">22dp</item>
+        <item name="android:layout_marginBottom">8dp</item>
+        <item name="android:textColor">#172033</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="NumberField">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">52dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:background">@android:drawable/edit_text</item>
+        <item name="android:inputType">number</item>
+        <item name="android:paddingHorizontal">8dp</item>
+    </style>
+</resources>
+

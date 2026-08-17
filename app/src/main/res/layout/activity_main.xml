@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/surface"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Codec Lab"
+            android:textColor="#172033"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="批量转码 · 裸流导出 · 客观画质分析"
+            android:textColor="#697386"
+            android:textSize="15sp" />
+
+        <Button
+            android:id="@+id/importButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="导入一个或多个视频" />
+
+        <TextView
+            android:id="@+id/fileSummary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="尚未选择文件"
+            android:textColor="#424B5F" />
+
+        <LinearLayout
+            android:id="@+id/inputListContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:orientation="vertical" />
+
+        <TextView
+            style="@style/SectionTitle"
+            android:text="解码与编码" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Spinner
+                android:id="@+id/decodeMode"
+                android:layout_width="0dp"
+                android:layout_height="52dp"
+                android:layout_weight="1" />
+
+            <Spinner
+                android:id="@+id/codec"
+                android:layout_width="0dp"
+                android:layout_height="52dp"
+                android:layout_marginStart="8dp"
+                android:layout_weight="1" />
+
+            <Spinner
+                android:id="@+id/encodeMode"
+                android:layout_width="0dp"
+                android:layout_height="52dp"
+                android:layout_marginStart="8dp"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <TextView
+            style="@style/SectionTitle"
+            android:text="输出参数" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/widthInput"
+                style="@style/NumberField"
+                android:hint="宽 720" />
+
+            <EditText
+                android:id="@+id/heightInput"
+                style="@style/NumberField"
+                android:layout_marginStart="8dp"
+                android:hint="高 1280" />
+
+            <EditText
+                android:id="@+id/fpsInput"
+                style="@style/NumberField"
+                android:layout_marginStart="8dp"
+                android:hint="FPS 30" />
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/bitrateInput"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_marginTop="8dp"
+            android:background="@android:drawable/edit_text"
+            android:hint="码率 kbps，例如 4000"
+            android:inputType="number"
+            android:paddingHorizontal="12dp" />
+
+        <CheckBox
+            android:id="@+id/metricsCheck"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:checked="true"
+            android:text="输出 PSNR / VMAF 评价报告" />
+
+        <Button
+            android:id="@+id/startButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="开始批量处理" />
+
+        <ProgressBar
+            android:id="@+id/progress"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="12dp"
+            android:layout_marginTop="18dp"
+            android:max="100"
+            android:progress="0" />
+
+        <TextView
+            android:id="@+id/statusText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="就绪"
+            android:textColor="#424B5F" />
+
+        <TextView
+            style="@style/SectionTitle"
+            android:text="任务结果" />
+
+        <LinearLayout
+            android:id="@+id/resultsContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+
+        <TextView
+            android:id="@+id/aggregateMetrics"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="#EAF2FF"
+            android:padding="14dp"
+            android:textColor="#17345F"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:visibility="gone" />
+
+        <TextView
+            style="@style/SectionTitle"
+            android:text="视频预览" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="原视频"
+            android:textColor="#424B5F" />
+
+        <Spinner
+            android:id="@+id/sourcePicker"
+            android:layout_width="match_parent"
+            android:layout_height="52dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="编码后视频"
+            android:textColor="#424B5F" />
+
+        <Spinner
+            android:id="@+id/outputPicker"
+            android:layout_width="match_parent"
+            android:layout_height="52dp" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            android:background="#101522">
+
+            <TextureView
+                android:id="@+id/videoView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <SurfaceView
+                android:id="@+id/hardwareVideoView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:visibility="invisible" />
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/playSourceButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="播放原视频" />
+
+            <Button
+                android:id="@+id/playOutputButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_weight="1"
+                android:text="播放编码后视频" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

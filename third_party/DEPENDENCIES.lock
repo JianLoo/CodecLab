@@ -1,0 +1,8 @@
+# Codec Lab media dependency manifest. Keep versions reproducible.
+# source_dir is relative to third_party/sources.
+
+FFmpeg|release/7.1|https://github.com/FFmpeg/FFmpeg.git|FFmpeg
+x264|stable|https://code.videolan.org/videolan/x264.git|x264
+x265|Release_4.1|https://bitbucket.org/multicoreware/x265_git.git|x265
+libvmaf|v3.0.0|https://github.com/Netflix/vmaf.git|libvmaf
+

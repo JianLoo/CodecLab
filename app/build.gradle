@@ -1,0 +1,86 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.example.codeclab'
+    compileSdk 35
+    ndkVersion '27.2.12479018'
+
+    defaultConfig {
+        applicationId 'com.example.codeclab'
+        minSdk 26
+        targetSdk 35
+        versionCode 1
+        versionName '0.1.0'
+
+        externalNativeBuild {
+            cmake {
+                cppFlags '-std=c++20 -fvisibility=hidden'
+                arguments '-DANDROID_STL=c++_shared'
+            }
+        }
+        // The checked-in published bundle targets production ARM64 devices.
+        // Add x86_64 by supplying a matching vendor bundle and ABI filter.
+        ndk {
+            abiFilters 'arm64-v8a'
+        }
+    }
+
+    externalNativeBuild {
+        cmake {
+            path file('src/main/cpp/CMakeLists.txt')
+            version '3.22.1'
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    packaging {
+        jniLibs.useLegacyPackaging = false
+    }
+}
+
+def mediaOutputRoot = file("src/main/cpp/third_party/ffmpeg/android")
+def mediaAbis = ["arm64-v8a"]
+def mediaLibraries = ["libavcodec.a", "libavformat.a", "libavfilter.a", "libavutil.a", "libswscale.a", "libx264.a", "libx265.a"]
+def mediaOutputFiles = mediaAbis.collectMany { abi ->
+    mediaLibraries.collect { library -> file("${mediaOutputRoot}/${abi}/lib/${library}") }
+}
+def vmafOutputRoot = file("src/main/cpp/third_party/vmaf/android")
+def vmafOutputFiles = mediaAbis.collectMany { abi ->
+    [file("${vmafOutputRoot}/${abi}/lib/libvmaf.a"),
+     file("${vmafOutputRoot}/${abi}/include/libvmaf/libvmaf.h")]
+}
+
+tasks.register("buildCompleteMedia", Exec) {
+    group = "codec lab"
+    description = "Verifies/downloads published FFmpeg/x264/x265 media libraries before native compilation."
+    workingDir rootProject.projectDir
+    commandLine "bash", "${rootProject.projectDir}/scripts/fetch_media_prebuilt.sh"
+    environment "ANDROID_HOME", android.sdkDirectory.absolutePath
+    environment "ANDROID_SDK_ROOT", android.sdkDirectory.absolutePath
+    environment "ANDROID_NDK_HOME", android.ndkDirectory.absolutePath
+    inputs.dir(file("${mediaOutputRoot}"))
+    inputs.file(file("${rootProject.projectDir}/scripts/fetch_media_prebuilt.sh"))
+    outputs.files(mediaOutputFiles + vmafOutputFiles)
+}
+
+tasks.named("preBuild").configure {
+    dependsOn(tasks.named("buildCompleteMedia"))
+}
+
+dependencies {
+    implementation 'androidx.appcompat:appcompat:1.7.1'
+    implementation 'com.google.android.material:material:1.13.0'
+}
